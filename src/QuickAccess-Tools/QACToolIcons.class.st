@@ -15,7 +15,7 @@ QACToolIcons class >> actionFolderIcon [
 	"Private - Generated method"
 	^ self iconCache 
 			at: #actionFolderIcon
-			ifAbsentPut:[ Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self actionFolderIconContents readStream) ].
+			ifAbsentPut:[ Form fromBinaryStream: (self actionFolderIconContents base64Decoded readStream) ].
 ]
 
 { #category : #'private - icons content' }
@@ -37,7 +37,7 @@ QACToolIcons class >> actionFolderNewIcon [
 	^ self iconCache 
 			at: #actionFolderNewIcon
 			ifAbsentPut:[ (self actionFolderIcon asFormOfDepth: 32)
-					mergeWith: (Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self newObjectOverlayIconContents readStream)) at: 9@0
+					mergeWith: (Form fromBinaryStream: (self newObjectOverlayIconContents base64Decoded readStream)) at: 9@0
 				].
 ]
 
@@ -122,7 +122,7 @@ QACToolIcons class >> actionNewIcon [
 	^ self iconCache 
 			at: #actionNewIcon
 			ifAbsentPut:[ (self actionIcon asFormOfDepth: 32)
-					mergeWith: (Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self newObjectOverlayIconContents readStream)) at: 9@0
+					mergeWith: (Form fromBinaryStream: (self newObjectOverlayIconContents base64Decoded readStream)) at: 9@0
 				].
 ]
 
@@ -151,7 +151,7 @@ QACToolIcons class >> exportIcon [
 	"Private - Generated method"
 	^ self iconCache 
 			at: #exportIcon
-			ifAbsentPut:[ Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self exportIconContents readStream) ].
+			ifAbsentPut:[ Form fromBinaryStream: (self exportIconContents base64Decoded readStream) ].
 ]
 
 { #category : #'private - icons content' }
@@ -178,7 +178,7 @@ QACToolIcons class >> importIcon [
 	"Private - Generated method"
 	^ self iconCache 
 			at: #importIcon
-			ifAbsentPut:[ Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self importIconContents readStream) ].
+			ifAbsentPut:[ Form fromBinaryStream: (self importIconContents base64Decoded readStream) ].
 ]
 
 { #category : #'private - icons content' }
