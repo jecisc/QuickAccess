@@ -24,7 +24,7 @@ QACustomIcon class >> contents: aString [
 QACustomIcon >> cachedIcon [
 
 	cachedIcon isNil ifTrue: [ cachedIcon := Form fromBinaryStream: 
-										(Base64MimeConverter mimeDecodeToBytes: self contents readStream) ].
+										(self contents base64Decoded readStream) ].
 	^cachedIcon 						
 						
 ]

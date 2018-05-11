@@ -131,7 +131,7 @@ QACToolIcons class >> executeIcon [
 	"Private - Generated method"
 	^ self iconCache 
 			at: #executeIcon
-			ifAbsentPut:[ Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self executeIconContents readStream) ].
+			ifAbsentPut:[ Form fromBinaryStream: (self executeIconContents base64Decoded readStream) ].
 ]
 
 { #category : #'private - icons content' }
@@ -214,7 +214,7 @@ QACToolIcons class >> saveIcon [
 	"Private - Generated method"
 	^ self iconCache 
 			at: #saveIcon
-			ifAbsentPut:[ Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self saveIconContents readStream) ].
+			ifAbsentPut:[ Form fromBinaryStream: (self saveIconContents base64Decoded readStream) ].
 ]
 
 { #category : #'private - icons content' }
