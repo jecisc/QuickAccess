@@ -47,7 +47,7 @@ QACToolIcons class >> actionFolderWithActionsIcon [
 	
 	^ self iconCache 
 			at: #actionFolderWithActionsIcon
-			ifAbsentPut:[ Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self actionFolderWithActionsIconContents readStream) ].
+			ifAbsentPut:[ Form fromBinaryStream: (self actionFolderWithActionsIconContents base64Decoded readStream) ].
 
 ]
 
@@ -72,7 +72,7 @@ QACToolIcons class >> actionIcon [
 	"Private - Generated method"
 	^ self iconCache 
 			at: #actionIcon
-			ifAbsentPut:[ Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self actionIconContents readStream) ].
+			ifAbsentPut:[ Form fromBinaryStream: (self actionIconContents base64Decoded readStream) ].
 ]
 
 { #category : #'private - icons content' }
@@ -99,7 +99,7 @@ QACToolIcons class >> actionManagerIcon [
 	"Private - Generated method"
 	^ self iconCache 
 			at: #actionManagerIcon
-			ifAbsentPut:[ Form fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: self actionManagerIconContents readStream) ].
+			ifAbsentPut:[ Form fromBinaryStream: (self actionManagerIconContents base64Decoded readStream) ].
 ]
 
 { #category : #'private - icons content' }
