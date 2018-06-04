@@ -9,6 +9,7 @@ Class {
 		'rootFolder'
 	],
 	#classInstVars : [
+		'importFile',
 		'default'
 	],
 	#category : #'QuickAccess-Core-Base'
@@ -27,6 +28,29 @@ QACActionManager class >> default: aManager [
 	^ default := aManager
 ]
 
+{ #category : #accessing }
+QACActionManager class >> importFile [
+	^ importFile
+]
+
+{ #category : #accessing }
+QACActionManager class >> importFile: anObject [
+	importFile := anObject.
+	self importFromDefaultLocation
+]
+
+{ #category : #accessing }
+QACActionManager class >> importFromDefaultLocation [
+	(self importFile isNil or: [ self importFile exists not ]) ifTrue: [ ^ self ].
+
+	self default import: self importFile
+]
+
+{ #category : #accessing }
+QACActionManager class >> initialize [
+	SessionManager default registerSystemClassNamed: self name
+]
+
 { #category : #'private ' }
 QACActionManager class >> reset [
 	"Resets the default instance"
@@ -34,6 +58,12 @@ QACActionManager class >> reset [
 	
 	default := nil.
 	 
+]
+
+{ #category : #accessing }
+QACActionManager class >> startUp [
+	super startUp.	
+	self importFromDefaultLocation
 ]
 
 { #category : #'private-accessing' }
