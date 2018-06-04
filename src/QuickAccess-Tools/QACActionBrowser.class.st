@@ -12,8 +12,7 @@ QACActionBrowser class >> menuCommandOn: aBuilder [
 	<worldMenu> 
 	(aBuilder item: #'Quick Access')
 		help: 'Quick Access';
-		order: 3.0; 
-		icon: QACToolIcons actionManagerIcon. 
+		order: 3.0. 
 	
 	(aBuilder item: #'Quick Access Manager')
 		help: 'Quick Access Action manager';
