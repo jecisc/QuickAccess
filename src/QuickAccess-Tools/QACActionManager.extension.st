@@ -35,12 +35,11 @@ QACActionManager >> iconProvider [
 	^QACToolIcons 
 ]
 
-{ #category : #'*QuickAccess-Tools-actions' }
+{ #category : #'*QuickAccess-Tools' }
 QACActionManager >> import: filename [
 	self become: (STON fromString: filename readStream contents).
-	self rootFolder actionItemsAndSubActionItems
-		do:
-			[ :each | each customIcon: (self iconLibrary iconWithID: each iconID) ]
+	self rootFolder actionItemsAndSubActionItems do: [ :each | each customIcon: (self iconLibrary iconWithID: each iconID) ].
+	MenubarMorph reset
 ]
 
 { #category : #'*QuickAccess-Tools-actions' }
