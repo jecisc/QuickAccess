@@ -14,7 +14,7 @@ Class {
 QACAction >> execute [
 	|tail|
 	tail := ' executed'.
-	[ Compiler evaluate: self expression ] 
+	[ Smalltalk compiler evaluate: self expression ] 
 		on: Error 
 		do: [ tail := tail, ' with errors' ].
 	UIManager inform: self name, tail.
