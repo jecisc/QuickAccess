@@ -3,7 +3,7 @@ A dialog to select icons
 "
 Class {
 	#name : #QACIconSelectionDialog,
-	#superclass : #ComposableModel,
+	#superclass : #ComposablePresenter,
 	#instVars : [
 		'iconList',
 		'iconLibrary',
